@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Dev Portfolio</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    body.no-anim * {
+      transition: none !important;
+      animation: none !important;
+    }
+
+    header {
+      background: var(--card);
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #1e293b;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 5px;
+      transition: 0.3s;
+    }
+
+    .skills span:hover {
+      background: var(--accent);
+      color: black;
+      transform: scale(1.1);
+    }
+
+    .project-media {
+      margin-top: 10px;
+    }
+
+    .project-media img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 250px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .toggle {
+      margin-top: 10px;
+      cursor: pointer;
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--card);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Your Name</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      I'm a passionate Game Developer specializing in Unity and gameplay programming.
+      I enjoy building interactive experiences and experimenting with mechanics.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="card skills">
+    <span>Unity</span>
+    <span>C#</span>
+    <span>Game Design</span>
+    <span>UI/UX</span>
+    <span>Blender</span>
+    <span>Git & GitHub</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Horror Line of Sight Game</h3>
+    <p>Monster moves when player blinks mechanic.</p>
+    <div class="project-media">
+      <img src="https://via.placeholder.com/800x400" alt="Game Screenshot">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Production Line Simulator</h3>
+    <p>AI-based defect detection and automated system.</p>
+    <div class="project-media">
+      <img src="https://via.placeholder.com/800x400" alt="Game Screenshot">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+    </div>
+  </div>
+
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+
+  <div class="card">
+    <h3>Game Development Instructor</h3>
+    <p>Teaching Unity and Roblox to students.</p>
+  </div>
+
+  <div class="card">
+    <h3>Intern Game Developer</h3>
+    <p>Worked on FPS systems, object pooling, and gameplay mechanics.</p>
+  </div>
+
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: your@email.com</p>
+    <p>GitHub: github.com/yourprofile</p>
+    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Your Name - Game Developer</p>
+</footer>
+
+<script>
+function toggleAnim() {
+  document.body.classList.toggle("no-anim");
+}
+</script>
+
+</body>
+</html>
