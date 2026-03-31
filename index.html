@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Dev Portfolio</title>
+
   <style>
     :root {
       --bg: #0f172a;
@@ -17,13 +18,14 @@
       font-family: Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
-      transition: all 0.3s ease;
+      overflow-x: hidden;
     }
 
-    body.no-anim * {
-      transition: none !important;
-      animation: none !important;
-    }
+    /* THEMES */
+    body.minimal { --bg:#ffffff; --card:#f1f5f9; --text:#0f172a; --accent:#2563eb; }
+    body.scifi { --bg:#020617; --card:#020617; --text:#38bdf8; --accent:#22c55e; }
+    body.gameui { --bg:#0f172a; --card:#1e293b; --text:#eab308; --accent:#f97316; }
+    body.aaa { --bg:#000000; --card:#111; --text:#e5e5e5; --accent:#ef4444; }
 
     header {
       background: var(--card);
@@ -35,16 +37,16 @@
     }
 
     nav a {
-      margin: 0 15px;
+      margin: 0 10px;
       color: var(--accent);
       text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
     }
 
-    nav a:hover {
-      color: white;
-      transform: scale(1.1);
+    .theme-buttons button {
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
     }
 
     section {
@@ -53,162 +55,156 @@
       margin: auto;
     }
 
-    h2 {
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-
     .card {
       background: var(--card);
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 20px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
-
-    .skills span {
-      display: inline-block;
-      background: #1e293b;
-      padding: 10px;
-      border-radius: 8px;
-      margin: 5px;
       transition: 0.3s;
     }
 
-    .skills span:hover {
-      background: var(--accent);
-      color: black;
-      transform: scale(1.1);
+    .card:hover {
+      transform: translateY(-8px);
     }
 
-    .project-media {
-      margin-top: 10px;
+    /* HERO */
+    .hero {
+      text-align: center;
+      position: relative;
     }
 
-    .project-media img {
-      width: 100%;
-      border-radius: 10px;
+    .hero img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
       margin-bottom: 10px;
     }
 
-    iframe {
+    .typing {
+      border-right: 2px solid var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: typing 3s steps(30), blink 0.5s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    /* PARTICLES */
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 250px;
-      border-radius: 10px;
-      border: none;
+      height: 100%;
+      z-index: -1;
     }
 
-    .toggle {
-      margin-top: 10px;
-      cursor: pointer;
-      color: var(--accent);
+    canvas { display: block; }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: black;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: var(--card);
-      margin-top: 40px;
-    }
   </style>
 </head>
-<body>
+<body class="scifi">
+
+<canvas id="particles"></canvas>
 
 <header>
-  <h1>Your Name</h1>
+  <h1>Ahmed Alaa</h1>
   <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
+    <a href="#hero">Home</a>
     <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </nav>
 
+  <div class="theme-buttons">
+    <button onclick="setTheme('minimal')">Minimal</button>
+    <button onclick="setTheme('scifi')">Sci-Fi</button>
+    <button onclick="setTheme('gameui')">Game UI</button>
+    <button onclick="setTheme('aaa')">AAA</button>
+  </div>
 </header>
 
-<section id="about">
-  <h2>About Me</h2>
+<section id="hero" class="hero">
   <div class="card">
-    <p>
-      I'm a passionate Game Developer specializing in Unity and gameplay programming.
-      I enjoy building interactive experiences and experimenting with mechanics.
-    </p>
-  </div>
-</section>
+    <img src="https://via.placeholder.com/120" alt="Profile">
+    <h2 class="typing">Game Developer | Unity Specialist</h2>
+    <p>Building interactive systems, horror mechanics, and gameplay experiences.</p>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="card skills">
-    <span>Unity</span>
-    <span>C#</span>
-    <span>Game Design</span>
-    <span>UI/UX</span>
-    <span>Blender</span>
-    <span>Git & GitHub</span>
+    <p>
+      📍 Egypt<br>
+      📧 your@email.com
+    </p>
+
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="#" class="btn">Download CV</a>
   </div>
 </section>
 
 <section id="projects">
   <h2>Projects</h2>
-
   <div class="card">
-    <h3>Horror Line of Sight Game</h3>
-    <p>Monster moves when player blinks mechanic.</p>
-    <div class="project-media">
-      <img src="https://via.placeholder.com/800x400" alt="Game Screenshot">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
-    </div>
+    <h3>Horror Game</h3>
+    <img src="https://via.placeholder.com/800x400">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
   </div>
-
-  <div class="card">
-    <h3>Production Line Simulator</h3>
-    <p>AI-based defect detection and automated system.</p>
-    <div class="project-media">
-      <img src="https://via.placeholder.com/800x400" alt="Game Screenshot">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
-    </div>
-  </div>
-
-</section>
-
-<section id="experience">
-  <h2>Experience</h2>
-
-  <div class="card">
-    <h3>Game Development Instructor</h3>
-    <p>Teaching Unity and Roblox to students.</p>
-  </div>
-
-  <div class="card">
-    <h3>Intern Game Developer</h3>
-    <p>Worked on FPS systems, object pooling, and gameplay mechanics.</p>
-  </div>
-
 </section>
 
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
-    <p>Email: your@email.com</p>
     <p>GitHub: github.com/yourprofile</p>
-    <p>LinkedIn: linkedin.com/in/yourprofile</p>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Your Name - Game Developer</p>
-</footer>
-
 <script>
-function toggleAnim() {
-  document.body.classList.toggle("no-anim");
+function setTheme(theme) {
+  document.body.className = theme;
 }
+
+// SIMPLE PARTICLES
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for (let i = 0; i < 60; i++) {
+  particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*2 });
+}
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = 'white';
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fill();
+    p.y += 0.2;
+    if(p.y > canvas.height) p.y = 0;
+  });
+  requestAnimationFrame(animate);
+}
+
+animate();
 </script>
 
 </body>
