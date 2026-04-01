@@ -12,6 +12,8 @@
   --text:#ffffff;
 }
 
+html { scroll-behavior:smooth; }
+
 body {
   margin:0;
   font-family:Arial;
@@ -20,7 +22,6 @@ body {
   overflow-x:hidden;
 }
 
-/* PARTICLES CANVAS */
 #particles {
   position:fixed;
   width:100%;
@@ -44,6 +45,40 @@ nav a {
   margin:0 10px;
   color:var(--accent);
   text-decoration:none;
+  position:relative;
+  transition:0.3s;
+}
+
+nav a::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s;
+}
+
+nav a:hover::after { width:100%; }
+nav a:hover { text-shadow:0 0 8px var(--accent); }
+
+.nav-btn {
+  display:inline-block;
+  margin-left:15px;
+  padding:6px 14px;
+  border-radius:6px;
+  background:var(--accent);
+  color:#000 !important;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 0 10px var(--accent);
+  transition:0.3s;
+}
+
+.nav-btn:hover {
+  transform:scale(1.08);
+  box-shadow:0 0 20px var(--accent), 0 0 40px var(--accent);
 }
 
 section {
@@ -65,7 +100,13 @@ section {
   border-radius:50%;
   border: 15px solid #00c3d1;
   border-style:double;
-  margin-bottom:20px;
+  box-shadow:0 0 30px var(--accent);
+  transition:0.4s;
+}
+
+.hero img:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 60px var(--accent);
 }
 
 .typing {
@@ -83,29 +124,56 @@ section {
   padding:20px;
   border-radius:12px;
   margin:20px 0;
+  transition:0.3s;
 }
 
-/* SKILLS */
+.card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
 .skills span {
   display:inline-block;
   margin:5px;
   padding:10px;
   background:#0f172a;
   border-radius:8px;
+  transition:0.3s;
 }
 
-/* STATS COUNTERS */
-.stats {
-  display:flex;
-  justify-content:space-around;
-  flex-wrap:wrap;
-  text-align:center;
-  margin-top:20px;
+.skills span:hover {
+  background:var(--accent);
+  color:#000;
+  transform:scale(1.1);
+  box-shadow:0 0 10px var(--accent);
 }
 
-.stat h3 {
-  font-size:2em;
-  color:var(--accent);
+iframe {
+  border-radius:10px;
+  transition:0.3s;
+}
+
+iframe:hover {
+  transform:scale(1.02);
+  box-shadow:0 0 20px var(--accent);
+}
+
+.btn {
+  display:inline-block;
+  margin:10px 5px;
+  padding:10px 20px;
+  background:var(--accent);
+  color:#000;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 0 10px var(--accent);
+  transition:0.3s;
+}
+
+.btn:hover {
+  transform:scale(1.08);
+  box-shadow:0 0 20px var(--accent), 0 0 40px var(--accent);
 }
 
 </style>
@@ -117,16 +185,15 @@ section {
 <header>
   <h2>Ahmed Alaa</h2>
   <nav>
-    <!-- <a href="#hero">Home</a> -->
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
+    <a href="Ahmed_Alaa_Unity_Game_Developer.pdf" target="_blank" class="nav-btn">Resume</a>
   </nav>
 </header>
 
-<!-- HERO -->
 <section id="hero" class="hero">
   <div>
     <img src="profile Picture.jpg" alt="Profile Picture">
@@ -135,147 +202,147 @@ section {
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
     <p>
-      Unity Game Developer with 1 year of professional experience in developing single-player Games and a multiplayer Educational Endless Runner using Photon PUN, building gameplay systems, optimizing performance, implementing core mechanics, and solving complex technical problems. Experienced with version control workflows and familiar with Agile/​Scrum development cycles.
+      Unity Game Developer specializing in gameplay systems, AI mechanics, and interactive experiences across PC and VR platforms. I focus on building scalable, maintainable systems using clean architecture principles and design patterns, with strong attention to performance and player experience.
     </p>
     <p>
-      Game Development Instructor with 3 years of experience teaching Unity and Roblox game development to students of all ages. Skilled in curriculum design, lesson planning, and delivering engaging instruction that fosters creativity and technical skills in aspiring game developers.
+      Professionally, I have contributed to both single-player and multiplayer projects, including a Photon PUN-based endless runner and system-driven gameplay prototypes. I enjoy solving complex technical problems and translating ideas into polished, responsive gameplay.
     </p>
-
-<!--<div class="stats">
-      <div class="stat"><h3 data-target="15">0</h3><p>🎮 Projects</p></div>
-      <div class="stat"><h3 data-target="1">0</h3><p>⚙️ Years</p></div>
-      <div class="stat"><h3 data-target="200">0</h3><p>🧠 Students</p></div>
-    </div>
-    -->
-    
-
+    <p>
+      Alongside development, I have 3+ years of experience as a Game Development Instructor, where I design structured learning paths, mentor students, and help them ship real projects. My teaching focuses on clarity, practical skills, and building confidence in aspiring developers.
+    </p>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <h2>Skills</h2>
   <div class="card skills">
-    <span>Unity</span>
-    <span>Roblox</span>
-    <span>C#</span>
-    <span>Lua</span>
-    <span>Game Mechanics</span>
-    <span>Design Pattern Workflow</span>
-    <span>Firebase</span>
+    <span>Unity Engine</span>
+    <span>C# Programming</span>
+    <span>Roblox & Lua</span>
+    <span>Gameplay Systems Design</span>
+    <span>AI (State Machines)</span>
     <span>Object Pooling</span>
     <span>Scriptable Objects</span>
-    <span>Event Systems</span>
-    <span>Agile/Scrum</span>
-    <span>Git</span>
-    <span>OOP</span>
-    <span>Teaching to Ages 7-20+</span>
+    <span>Event-Driven Architecture</span>
+    <span>Physics & Player Controllers</span>
+    <span>Multiplayer (Photon PUN)</span>
+    <span>Firebase Integration</span>
+    <span>UI/UX Implementation</span>
+    <span>Optimization & Performance</span>
+    <span>Debugging & Problem Solving</span>
+    <span>Git & Version Control</span>
+    <span>Agile / Scrum Workflow</span>
+    <span>Curriculum Design</span>
+    <span>Technical Mentoring</span>
     <span>Course Creation</span>
-    <span>Task Management</span>
-
-
-
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
 
-    <div class="card">
+  <div class="card">
     <h3>ZiRunner</h3>
-    
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/N7kuuCKZ6uI?si=nVa2hg3xTLLZNZH9"></iframe>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/N7kuuCKZ6uI?rel=0&modestbranding=1"></iframe>
+    <ul>
+      <li>Developed a multiplayer endless runner using Photon PUN</li>
+      <li>Implemented player synchronization and core gameplay loop</li>
+      <li>Designed scalable systems for Data Management and Synchronization</li>
+    </ul>
   </div>
 
- <div class="card">
+  <div class="card">
     <h3>Cam3 Horror Game - Work in Progress</h3>
-    
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/mtu0YiJJ53c?si=O1LRKVEVsAh5yzqK"></iframe>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/mtu0YiJJ53c?rel=0&modestbranding=1"></iframe>
+    <ul>
+      <li>Designed a immersive horror experience with dynamic lighting and sound</li>
+      <li>Implemented a camera system for the player to keep track of the main monster</li>
+      <li>Implemented observation mechanics regarding the main monster</li>
+      <li>More Updates Coming Soon!</li>
+    </ul>
   </div>
 
   <div class="card">
     <h3>Firebase Inventory System</h3>
-    
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/9_xd8Zw_LMM?si=BaTBeNtVZMzT92g-"></iframe>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/9_xd8Zw_LMM?rel=0&modestbranding=1"></iframe>
+    <ul>
+      <li>Built a real-time inventory system integrated with Firebase</li>
+      <li>Handled data syncing, storage and retrieval</li>
+      <li>Designed reusable and modular backend-connected systems</li>
+    </ul>
   </div>
 
   <div class="card">
     <h3>Line-of-Sight Monster Mechanic</h3>
-    
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/-GzE9am3SuE?si=yVEqsO1Wq6N9eTGB"allowfullscreen>
-</iframe>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/-GzE9am3SuE?rel=0&modestbranding=1"></iframe>
+    <ul>
+      <li>Implemented visibility-based AI using camera detection</li>
+      <li>Used raycasting and frustum checks for accuracy</li>
+      <li>Optimized detection logic for performance</li>
+    </ul>
   </div>
 
   <div class="card">
-    <h3>Rpg Battle System Prototype</h3>
-    
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDlAuVy_yA?si=879A91YazZaIyCSs"></iframe>
+    <h3>RPG Battle System Prototype</h3>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDlAuVy_yA?rel=0&modestbranding=1"></iframe>
+    <ul>
+      <li>Built turn-based combat logic and state management</li>
+      <li>Designed modular combat system architecture</li>
+      <li>Focused on extensibility for future features</li>
+    </ul>
   </div>
-
 
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <h2>Experience</h2>
 
   <div class="card">
-    <h3>Game Development Instructor</h3>
-    <p>Teaching Unity & Roblox.</p>
+    <h3>Junior Game Developer @ Zinad</h3>
+    <p><strong>July 2025 - Present</strong></p>
+    <ul>
+      <li>Developing a rhythm-based fitness VR game for Meta Quest 3</li>
+      <li>Designed and implemented scalable gameplay systems</li>
+      <li>Built multiplayer mechanics using Photon PUN</li>
+      <li>Applied design patterns (State, Object Pooling) for clean architecture</li>
+      <li>Integrated Firebase systems for real-time data handling</li>
+      <li>Optimized performance and memory usage for smooth gameplay</li>
+      <li>Collaborated in Agile environment with Git-based workflows</li>
+    </ul>
   </div>
 
   <div class="card">
-    <h3>Game Dev Intern</h3>
-    <p>Worked on gameplay systems & FPS mechanics.</p>
+    <h3>Game Development Instructor @ Da3em Academy</h3>
+    <p><strong>2023 - 2025</strong></p>
+    <ul>
+      <li>Delivered structured courses in Unity and Roblox development</li>
+      <li>Designed full curricula covering programming, physics, and UI systems</li>
+      <li>Mentored students from beginner level to publishing games</li>
+      <li>Simplified complex technical concepts into practical lessons</li>
+      <li>Helped students build portfolios and real-world projects</li>
+    </ul>
   </div>
 
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
-    <p>Email: your@email.com</p>
-    <p>GitHub: github.com/yourprofile</p>
-    <p>LinkedIn: linkedin.com/in/yourprofile</p>
+    <p>Email: Ahmed.A.Abdou@outlook.com</p>
+    <p>Phone: +20 102 099 4208</p>
+
+    <button class="btn" onclick="window.open('https://www.linkedin.com/in/ahmedalaa277/', '_blank')">LinkedIn</button>
+    <button class="btn" onclick="window.open('https://github.com/Ahmed-A-Abdou', '_blank')">GitHub</button>
+    <button class="btn" onclick="window.open('https://www.youtube.com/@AbuAlaa007', '_blank')">YouTube</button>
+    <button class="btn" onclick="window.open('Ahmed_Alaa_Unity_Game_Developer.pdf', '_blank')">Download Resume</button>
   </div>
 </section>
 
 <script>
-// COUNTER ANIMATION ON SCROLL
-const counters = document.querySelectorAll('[data-target]');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      const el = entry.target;
-      let count = 0;
-      const target = +el.dataset.target;
-      const step = target / 60;
-
-      const update = () => {
-        count += step;
-        if(count < target){
-          el.innerText = Math.ceil(count);
-          requestAnimationFrame(update);
-        } else {
-          el.innerText = target;
-        }
-      };
-      update();
-    }
-  });
-});
-
-counters.forEach(c => observer.observe(c));
-
-// PARTICLES
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
