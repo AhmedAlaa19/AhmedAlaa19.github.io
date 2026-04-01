@@ -3,27 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Dev Portfolio</title>
+<title>Ahmed Alaa - Game Dev Portfolio</title>
 
 <style>
 :root {
-  --bg:#020617;
-  --card:#020617;
-  --accent:#22c55e;
-  --text:#38bdf8;
+  --card:#1e293b;
+  --accent:#00c3d1;
+  --text:#ffffff;
 }
 
 body {
   margin:0;
   font-family:Arial;
-  background:var(--bg);
   color:var(--text);
+  background: linear-gradient(135deg, #020617, #0d1422, #020617);
+  overflow-x:hidden;
+}
+
+/* PARTICLES CANVAS */
+#particles {
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:-1;
 }
 
 header {
   position:fixed;
   width:100%;
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.6);
   backdrop-filter:blur(10px);
   padding:15px;
   text-align:center;
@@ -51,8 +61,11 @@ section {
 }
 
 .hero img {
-  width:140px;
+  width: 440px;
   border-radius:50%;
+  border: 15px solid #00c3d1;
+  border-style:double;
+  margin-bottom:20px;
 }
 
 .typing {
@@ -72,100 +85,222 @@ section {
   margin:20px 0;
 }
 
-/* XP SYSTEM */
-.stat {
-  margin:20px 0;
+/* SKILLS */
+.skills span {
+  display:inline-block;
+  margin:5px;
+  padding:10px;
+  background:#0f172a;
+  border-radius:8px;
 }
 
-.bar {
-  width:100%;
-  height:10px;
-  background:#111;
-  border-radius:10px;
-  overflow:hidden;
+/* STATS COUNTERS */
+.stats {
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  text-align:center;
+  margin-top:20px;
 }
 
-.fill {
-  height:100%;
-  width:0;
-  background:var(--accent);
-  transition:1.5s;
+.stat h3 {
+  font-size:2em;
+  color:var(--accent);
 }
 
 </style>
 </head>
 <body>
 
+<canvas id="particles"></canvas>
+
 <header>
   <h2>Ahmed Alaa</h2>
   <nav>
-    <a href="#hero">Home</a>
+    <!-- <a href="#hero">Home</a> -->
     <a href="#about">About</a>
+    <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section id="hero" class="hero">
   <div>
-    <img src="pprofile.jpg" alt="Profile Picture">
-    <h1 class="typing">Game Developer | Unity</h1>
-    <p>Building gameplay systems & horror mechanics</p>
+    <img src="profile Picture.jpg" alt="Profile Picture">
+    <h1 class="typing">Game Developer • Game Programmer • PC & VR | Unity</h1>
+    <p>Game Developer and Instructor</p>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
-    <p>Unity Developer & Instructor focused on gameplay systems.</p>
+    <p>
+      Unity Game Developer with 1 year of professional experience in developing single-player Games and a multiplayer Educational Endless Runner using Photon PUN, building gameplay systems, optimizing performance, implementing core mechanics, and solving complex technical problems. Experienced with version control workflows and familiar with Agile/​Scrum development cycles.
+    </p>
+    <p>
+      Game Development Instructor with 3 years of experience teaching Unity and Roblox game development to students of all ages. Skilled in curriculum design, lesson planning, and delivering engaging instruction that fosters creativity and technical skills in aspiring game developers.
+    </p>
 
-    <div class="stat">
-      <p>🎮 Projects</p>
-      <div class="stat"><h3 data-target="15">0</h3></div>
+<!--<div class="stats">
+      <div class="stat"><h3 data-target="15">0</h3><p>🎮 Projects</p></div>
+      <div class="stat"><h3 data-target="1">0</h3><p>⚙️ Years</p></div>
+      <div class="stat"><h3 data-target="200">0</h3><p>🧠 Students</p></div>
     </div>
+    -->
+    
 
-    <div class="stat">
-      <p>⚙️ Experience</p>
-      <div class="stat"><h3 data-target="3">0</h3></div>
-    </div>
-
-    <div class="stat">
-      <p>🧠 Teaching</p>
-      <div class="stat"><h3 data-target="200">0</h3></div>
-    </div>
   </div>
 </section>
 
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="card skills">
+    <span>Unity</span>
+    <span>Roblox</span>
+    <span>C#</span>
+    <span>Lua</span>
+    <span>Game Mechanics</span>
+    <span>Design Pattern Workflow</span>
+    <span>Firebase</span>
+    <span>Object Pooling</span>
+    <span>Scriptable Objects</span>
+    <span>Event Systems</span>
+    <span>Agile/Scrum</span>
+    <span>Git</span>
+    <span>OOP</span>
+    <span>Teaching to Ages 7-20+</span>
+    <span>Course Creation</span>
+    <span>Task Management</span>
+
+
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects">
   <h2>Projects</h2>
-  <div class="card">
-    <h3>Horror Game</h3>
+
+    <div class="card">
+    <h3>ZiRunner</h3>
     <img src="https://via.placeholder.com/800x400" width="100%">
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
   </div>
+
+ <div class="card">
+    <h3>Cam3 Horror Game - Work in Progress</h3>
+    <img src="https://via.placeholder.com/800x400" width="100%">
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+  </div>
+
+  <div class="card">
+    <h3>Firebase Inventory System</h3>
+    <img src="https://via.placeholder.com/800x400" width="100%">
+    <iframe width="100%" height="250" src="https://youtu.be/9_xd8Zw_LMM"></iframe>
+  </div>
+
+  <div class="card">
+    <h3>Line-of-Sight Monster Mechanic</h3>
+    <img src="https://via.placeholder.com/800x400" width="100%">
+    <iframe width="100%" height="250" 
+src="https://www.youtube.com/embed/abc123XYZ"
+allowfullscreen>
+</iframe>
+  </div>
+
+  <div class="card">
+    <h3>Rpg Battle System Prototype</h3>
+    <img src="https://via.placeholder.com/800x400" width="100%">
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+  </div>
+
+
 </section>
 
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
+
+  <div class="card">
+    <h3>Game Development Instructor</h3>
+    <p>Teaching Unity & Roblox.</p>
+  </div>
+
+  <div class="card">
+    <h3>Game Dev Intern</h3>
+    <p>Worked on gameplay systems & FPS mechanics.</p>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
     <p>Email: your@email.com</p>
+    <p>GitHub: github.com/yourprofile</p>
+    <p>LinkedIn: linkedin.com/in/yourprofile</p>
   </div>
 </section>
 
 <script>
-// SCROLL TRIGGER XP
-const fills = document.querySelectorAll('.fill');
+// COUNTER ANIMATION ON SCROLL
+const counters = document.querySelectorAll('[data-target]');
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
       const el = entry.target;
-      el.style.width = el.dataset.progress + "%";
+      let count = 0;
+      const target = +el.dataset.target;
+      const step = target / 60;
+
+      const update = () => {
+        count += step;
+        if(count < target){
+          el.innerText = Math.ceil(count);
+          requestAnimationFrame(update);
+        } else {
+          el.innerText = target;
+        }
+      };
+      update();
     }
   });
 });
 
-fills.forEach(f => observer.observe(f));
+counters.forEach(c => observer.observe(c));
+
+// PARTICLES
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+for(let i=0;i<80;i++){
+  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2});
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = '#00c3d1';
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+    p.y += 0.3;
+    if(p.y > canvas.height) p.y = 0;
+  });
+  requestAnimationFrame(animate);
+}
+animate();
 </script>
 
 </body>
