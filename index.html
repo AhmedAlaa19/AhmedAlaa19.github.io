@@ -41,8 +41,14 @@ header {
   z-index:1000;
 }
 
+nav {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
 nav a {
-  margin:0 10px;
+  margin:8px 10px;
   color:var(--accent);
   text-decoration:none;
   position:relative;
@@ -96,7 +102,8 @@ section {
 }
 
 .hero img {
-  width: 440px;
+  width:100%;
+  max-width:440px;
   border-radius:50%;
   border: 15px solid #00c3d1;
   border-style:double;
@@ -176,6 +183,54 @@ iframe:hover {
   box-shadow:0 0 20px var(--accent), 0 0 40px var(--accent);
 }
 
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  header h2 {
+    font-size:18px;
+  }
+
+  nav a {
+    font-size:14px;
+    margin:6px;
+  }
+
+  .hero {
+    height:auto;
+    padding-top:120px;
+    padding-bottom:40px;
+  }
+
+  .hero img {
+    max-width:200px;
+    border-width:8px;
+  }
+
+  .typing {
+    white-space:normal;
+    border-right:none;
+    animation:none;
+  }
+
+  h1 {
+    font-size:20px;
+  }
+
+  section {
+    padding:80px 15px;
+  }
+
+  iframe {
+    height:200px;
+  }
+
+  .btn {
+    width:100%;
+    margin:8px 0;
+  }
+
+}
+
 </style>
 </head>
 <body>
@@ -212,7 +267,7 @@ iframe:hover {
       Professionally, I have contributed to both single-player and multiplayer projects, including a Photon PUN-based endless runner and system-driven gameplay prototypes. I enjoy solving complex technical problems and translating ideas into polished, responsive gameplay.
     </p>
     <p>
-      Alongside development, I have 3+ years of experience as a Game Development Instructor, where I design structured learning paths, mentor students, and help them ship real projects. My teaching focuses on clarity, practical skills, and building confidence in aspiring developers.
+      Alongside development, I have 3+ years of experience as a Game Development Instructor, where I design structured learning paths, mentor students, and help them ship real projects.
     </p>
   </div>
 </section>
@@ -247,7 +302,7 @@ iframe:hover {
 
   <div class="card">
     <h3>ZiRunner</h3>
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/N7kuuCKZ6uI?rel=0&modestbranding=1"></iframe>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/N7kuuCKZ6uI"></iframe>
     <ul>
       <li>Developed a multiplayer endless runner using Photon PUN</li>
       <li>Implemented player synchronization and core gameplay loop</li>
@@ -257,44 +312,16 @@ iframe:hover {
 
   <div class="card">
     <h3>Cam3 Horror Game - Work in Progress</h3>
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/mtu0YiJJ53c?rel=0&modestbranding=1"></iframe>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/mtu0YiJJ53c"></iframe>
     <ul>
-      <li>Designed a immersive horror experience with dynamic lighting and sound</li>
-      <li>Implemented a camera system for the player to keep track of the main monster</li>
-      <li>Implemented observation mechanics regarding the main monster</li>
+      <li>Designed immersive horror experience</li>
+      <li>Implemented camera-based monster tracking system</li>
+      <li>Built observation-based gameplay mechanics</li>
       <li>More Updates Coming Soon!</li>
     </ul>
   </div>
 
-  <div class="card">
-    <h3>Firebase Inventory System</h3>
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/9_xd8Zw_LMM?rel=0&modestbranding=1"></iframe>
-    <ul>
-      <li>Built a real-time inventory system integrated with Firebase</li>
-      <li>Handled data syncing, storage and retrieval</li>
-      <li>Designed reusable and modular backend-connected systems</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>Line-of-Sight Monster Mechanic</h3>
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/-GzE9am3SuE?rel=0&modestbranding=1"></iframe>
-    <ul>
-      <li>Implemented visibility-based AI using camera detection</li>
-      <li>Used raycasting and frustum checks for accuracy</li>
-      <li>Optimized detection logic for performance</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h3>RPG Battle System Prototype</h3>
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDlAuVy_yA?rel=0&modestbranding=1"></iframe>
-    <ul>
-      <li>Built turn-based combat logic and state management</li>
-      <li>Designed modular combat system architecture</li>
-      <li>Focused on extensibility for future features</li>
-    </ul>
-  </div>
+  <div class="card"> <h3>Firebase Inventory System</h3> <iframe width="100%" height="250" src="https://www.youtube.com/embed/9_xd8Zw_LMM?rel=0&modestbranding=1"></iframe> <ul> <li>Built a real-time inventory system integrated with Firebase</li> <li>Handled data syncing, storage and retrieval</li> <li>Designed reusable and modular backend-connected systems</li> </ul> </div> <div class="card"> <h3>Line-of-Sight Monster Mechanic</h3> <iframe width="100%" height="250" src="https://www.youtube.com/embed/-GzE9am3SuE?rel=0&modestbranding=1"></iframe> <ul> <li>Implemented visibility-based AI using camera detection</li> <li>Used raycasting and frustum checks for accuracy</li> <li>Optimized detection logic for performance</li> </ul> </div> <div class="card"> <h3>RPG Battle System Prototype</h3> <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDlAuVy_yA?rel=0&modestbranding=1"></iframe> <ul> <li>Built turn-based combat logic and state management</li> <li>Designed modular combat system architecture</li> <li>Focused on extensibility for future features</li> </ul> </div>
 
 </section>
 
@@ -304,26 +331,14 @@ iframe:hover {
   <div class="card">
     <h3>Junior Game Developer @ Zinad</h3>
     <p><strong>July 2025 - Present</strong></p>
-    <ul>
-      <li>Developing a rhythm-based fitness VR game for Meta Quest 3</li>
-      <li>Designed and implemented scalable gameplay systems</li>
-      <li>Built multiplayer mechanics using Photon PUN</li>
-      <li>Applied design patterns (State, Object Pooling) for clean architecture</li>
-      <li>Integrated Firebase systems for real-time data handling</li>
-      <li>Optimized performance and memory usage for smooth gameplay</li>
-      <li>Collaborated in Agile environment with Git-based workflows</li>
-    </ul>
+    <ul> <li>Developing a rhythm-based fitness VR game for Meta Quest 3</li> <li>Designed and implemented scalable gameplay systems</li> <li>Built multiplayer mechanics using Photon PUN</li> <li>Applied design patterns (State, Object Pooling) for clean architecture</li> <li>Integrated Firebase systems for real-time data handling</li> <li>Optimized performance and memory usage for smooth gameplay</li> <li>Collaborated in Agile environment with Git-based workflows</li> </ul>
   </div>
 
   <div class="card">
     <h3>Game Development Instructor @ Da3em Academy</h3>
     <p><strong>2023 - 2025</strong></p>
     <ul>
-      <li>Delivered structured courses in Unity and Roblox development</li>
-      <li>Designed full curricula covering programming, physics, and UI systems</li>
-      <li>Mentored students from beginner level to publishing games</li>
-      <li>Simplified complex technical concepts into practical lessons</li>
-      <li>Helped students build portfolios and real-world projects</li>
+      <li>Delivered structured courses in Unity and Roblox development</li> <li>Designed full curricula covering programming, physics, and UI systems</li> <li>Mentored students from beginner level to publishing games</li> <li>Simplified complex technical concepts into practical lessons</li> <li>Helped students build portfolios and real-world projects</li>
     </ul>
   </div>
 
@@ -335,14 +350,15 @@ iframe:hover {
     <p>Email: Ahmed.A.Abdou@outlook.com</p>
     <p>Phone: +20 102 099 4208</p>
 
-    <button class="btn" onclick="window.open('https://www.linkedin.com/in/ahmedalaa277/', '_blank')">LinkedIn</button>
-    <button class="btn" onclick="window.open('https://github.com/Ahmed-A-Abdou', '_blank')">GitHub</button>
-    <button class="btn" onclick="window.open('https://www.youtube.com/@AbuAlaa007', '_blank')">YouTube</button>
+    <button class="btn" onclick="window.open('https://www.linkedin.com/in/ahmedalaa277/')">LinkedIn</button>
+    <button class="btn" onclick="window.open('https://github.com/Ahmed-A-Abdou')">GitHub</button>
+    <button class="btn" onclick="window.open('https://www.youtube.com/@AbuAlaa007')">YouTube</button>
     <button class="btn" onclick="window.open('Ahmed_Alaa_Unity_Game_Developer.pdf', '_blank')">Download Resume</button>
   </div>
 </section>
 
 <script>
+// particles
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
