@@ -109,6 +109,18 @@ section {
   margin:auto;
 }
 
+section h2 {
+  color:var(--accent);
+  font-size:1.8rem;
+  margin-bottom:10px;
+  text-shadow:0 0 12px rgba(0,195,209,0.4);
+}
+
+section h3 {
+  color:var(--accent);
+  margin-top:0;
+}
+
 .hero {
   height:100vh;
   display:flex;
@@ -147,6 +159,7 @@ section {
   padding:20px;
   border-radius:12px;
   margin:20px 0;
+  border-left:3px solid var(--accent);
   transition:0.3s;
 }
 
@@ -254,8 +267,16 @@ iframe:hover {
   }
 
   .nav-btn {
-    margin:15px auto;
+    display:block;
+    width:calc(100% - 40px);
+    margin:12px 20px;
+    padding:14px;
+    text-align:center;
+    border-radius:8px;
+    box-sizing:border-box;
   }
+
+  nav a::after { display:none; }
 
   .hero {
     height:auto;
@@ -440,7 +461,7 @@ iframe:hover {
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
-    <p>Email: Ahmed.A.Abdou@outlook.com</p>
+    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c283aaafa7a6ec83ec83a0a6adb782adb7b6aeadada9eca1adaf">[email&#160;protected]</a></p>
     <p>Phone: +20 102 099 4208</p>
 
     <button class="btn" onclick="window.open('https://www.linkedin.com/in/ahmedalaa277/')">LinkedIn</button>
@@ -450,7 +471,7 @@ iframe:hover {
   </div>
 </section>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function toggleMenu() {
   const menu = document.getElementById("nav-menu");
   const icon = document.getElementById("menuIcon");
