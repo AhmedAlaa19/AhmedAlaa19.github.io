@@ -46,8 +46,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;   /* ✅ prevents wrapping */
-  gap: 10px;
+  flex-wrap: wrap;   /* ✅ prevents wrapping */
+align-items:center;
 }
 
 nav a {
@@ -89,7 +89,16 @@ nav a:hover { text-shadow:0 0 8px var(--accent); }
   transform:scale(1.08);
   box-shadow:0 0 20px var(--accent), 0 0 40px var(--accent);
 }
-
+/* HAMBURGER */
+.menu-toggle {
+  display:none;
+  position:absolute;
+  right:20px;
+  font-size:28px;
+  color:var(--accent);
+  cursor:pointer;
+  transition:0.3s;
+}
 section {
   padding:100px 20px;
   max-width:1000px;
@@ -186,22 +195,54 @@ iframe:hover {
   box-shadow:0 0 20px var(--accent), 0 0 40px var(--accent);
 }
 
-/* MOBILE ONLY */
-@media (max-width: 768px) {
+/* MOBILE */
+@media (max-width:768px){
+
+  header {
+    justify-content:space-between;
+    padding:15px 20px;
+  }
 
   header h2 {
     font-size:18px;
   }
 
+  .menu-toggle {
+    display:block;
+  }
+
+  nav {
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,0.9);
+    backdrop-filter:blur(10px);
+
+    flex-direction:column;
+    align-items:center;
+
+    transform:translateY(-20px);
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s;
+  }
+
+  nav.active {
+    transform:translateY(0);
+    opacity:1;
+    pointer-events:auto;
+  }
+
   nav a {
-    font-size:14px;
-    margin:6px;
+    width:100%;
+    padding:15px;
+    text-align:center;
   }
 
   .hero {
     height:auto;
     padding-top:120px;
-    padding-bottom:40px;
   }
 
   .hero img {
@@ -211,21 +252,13 @@ iframe:hover {
 
   .typing {
     white-space:normal;
-    border-right:none;
+    border:none;
     animation:none;
   }
 
-  h1 {
-    font-size:20px;
-  }
+  h1 { font-size:20px; }
 
-  section {
-    padding:80px 15px;
-  }
-
-  iframe {
-    height:200px;
-  }
+  iframe { height:200px; }
 
   .btn {
     width:100%;
@@ -242,6 +275,7 @@ iframe:hover {
 
 <header>
   <h2>Ahmed Alaa</h2>
+    <div class="menu-toggle" id="menuIcon" onclick="toggleMenu()">☰</div>
   <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -361,7 +395,21 @@ iframe:hover {
 </section>
 
 <script>
-// particles
+function toggleMenu() {
+  const menu = document.getElementById("nav-menu");
+  const icon = document.getElementById("menuIcon");
+
+  menu.classList.toggle("active");
+
+  // Animate icon
+  if(menu.classList.contains("active")){
+    icon.textContent = "✖";
+  } else {
+    icon.textContent = "☰";
+  }
+}
+
+// PARTICLES (unchanged)
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
