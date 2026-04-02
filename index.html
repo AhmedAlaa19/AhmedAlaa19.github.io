@@ -198,10 +198,11 @@ iframe:hover {
 /* MOBILE */
 @media (max-width:768px){
 
-  header {
-    justify-content:space-between;
-    padding:15px 20px;
-  }
+ header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
   header h2 {
     font-size:18px;
@@ -276,7 +277,7 @@ iframe:hover {
 <header>
   <h2>Ahmed Alaa</h2>
     <div class="menu-toggle" id="menuIcon" onclick="toggleMenu()">☰</div>
-  <nav>
+<nav id="nav-menu">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
