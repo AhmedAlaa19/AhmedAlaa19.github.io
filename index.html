@@ -215,6 +215,23 @@ iframe:hover {
 /* MOBILE */
 @media (max-width:768px){
 
+  body {
+    background: linear-gradient(135deg, #020617, #0d1422, #020617) !important;
+    -webkit-background-size: cover;
+    background-attachment: scroll;
+    min-height: 100vh;
+  }
+
+  .card {
+    background: #1e293b !important;
+    border-left: 3px solid var(--accent);
+  }
+
+  .skills span {
+    background: #0f172a !important;
+    color: #ffffff !important;
+  }
+
   header {
     display:flex;
     justify-content:space-between;
@@ -461,7 +478,7 @@ iframe:hover {
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
-    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c283aaafa7a6ec83ec83a0a6adb782adb7b6aeadada9eca1adaf">[email&#160;protected]</a></p>
+    <p>Email: Ahmed.A.Abdou@outlook.com</p>
     <p>Phone: +20 102 099 4208</p>
 
     <button class="btn" onclick="window.open('https://www.linkedin.com/in/ahmedalaa277/')">LinkedIn</button>
@@ -471,7 +488,7 @@ iframe:hover {
   </div>
 </section>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function toggleMenu() {
   const menu = document.getElementById("nav-menu");
   const icon = document.getElementById("menuIcon");
