@@ -39,15 +39,15 @@ header {
   padding:15px;
   text-align:center;
   z-index:1000;
-  overflow-x: auto;
+  box-sizing:border-box;
 }
 
+/* Desktop nav */
 nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;   /* ✅ prevents wrapping */
-align-items:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
 nav a {
@@ -89,16 +89,20 @@ nav a:hover { text-shadow:0 0 8px var(--accent); }
   transform:scale(1.08);
   box-shadow:0 0 20px var(--accent), 0 0 40px var(--accent);
 }
+
 /* HAMBURGER */
 .menu-toggle {
   display:none;
-  position:absolute;
-  right:20px;
   font-size:28px;
   color:var(--accent);
   cursor:pointer;
   transition:0.3s;
+  background:none;
+  border:none;
+  padding:0;
+  line-height:1;
 }
+
 section {
   padding:100px 20px;
   max-width:1000px;
@@ -198,39 +202,45 @@ iframe:hover {
 /* MOBILE */
 @media (max-width:768px){
 
- header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+  header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 20px;
+    position:fixed;
+  }
 
   header h2 {
     font-size:18px;
+    margin:0;
   }
 
   .menu-toggle {
     display:block;
+    flex-shrink:0;
   }
 
   nav {
     position:absolute;
-    top:60px;
+    top:100%;
     left:0;
     width:100%;
-    background:rgba(0,0,0,0.9);
+    background:rgba(0,0,0,0.95);
     backdrop-filter:blur(10px);
-
     flex-direction:column;
     align-items:center;
+    flex-wrap:nowrap;
 
-    transform:translateY(-20px);
+    /* Hidden by default */
+    max-height:0;
+    overflow:hidden;
     opacity:0;
     pointer-events:none;
-    transition:0.4s;
+    transition:max-height 0.4s ease, opacity 0.3s ease;
   }
 
   nav.active {
-    transform:translateY(0);
+    max-height:500px;
     opacity:1;
     pointer-events:auto;
   }
@@ -239,6 +249,12 @@ iframe:hover {
     width:100%;
     padding:15px;
     text-align:center;
+    margin:0;
+    border-bottom:1px solid rgba(0,195,209,0.1);
+  }
+
+  .nav-btn {
+    margin:15px auto;
   }
 
   .hero {
@@ -267,7 +283,6 @@ iframe:hover {
   }
 
 }
-
 </style>
 </head>
 <body>
@@ -276,13 +291,13 @@ iframe:hover {
 
 <header>
   <h2>Ahmed Alaa</h2>
-    <div class="menu-toggle" id="menuIcon" onclick="toggleMenu()">☰</div>
-<nav id="nav-menu">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
+  <button class="menu-toggle" id="menuIcon" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+  <nav id="nav-menu">
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#skills" onclick="closeMenu()">Skills</a>
+    <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#experience" onclick="closeMenu()">Experience</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
     <a href="Ahmed_Alaa_Unity_Game_Developer.pdf" target="_blank" class="nav-btn">Resume</a>
   </nav>
 </header>
@@ -359,7 +374,35 @@ iframe:hover {
     </ul>
   </div>
 
-  <div class="card"> <h3>Firebase Inventory System</h3> <iframe width="100%" height="250" src="https://www.youtube.com/embed/9_xd8Zw_LMM?rel=0&modestbranding=1"></iframe> <ul> <li>Built a real-time inventory system integrated with Firebase</li> <li>Handled data syncing, storage and retrieval</li> <li>Designed reusable and modular backend-connected systems</li> </ul> </div> <div class="card"> <h3>Line-of-Sight Monster Mechanic</h3> <iframe width="100%" height="250" src="https://www.youtube.com/embed/-GzE9am3SuE?rel=0&modestbranding=1"></iframe> <ul> <li>Implemented visibility-based AI using camera detection</li> <li>Used raycasting and frustum checks for accuracy</li> <li>Optimized detection logic for performance</li> </ul> </div> <div class="card"> <h3>RPG Battle System Prototype</h3> <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDlAuVy_yA?rel=0&modestbranding=1"></iframe> <ul> <li>Built turn-based combat logic and state management</li> <li>Designed modular combat system architecture</li> <li>Focused on extensibility for future features</li> </ul> </div>
+  <div class="card">
+    <h3>Firebase Inventory System</h3>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/9_xd8Zw_LMM?rel=0&modestbranding=1"></iframe>
+    <ul>
+      <li>Built a real-time inventory system integrated with Firebase</li>
+      <li>Handled data syncing, storage and retrieval</li>
+      <li>Designed reusable and modular backend-connected systems</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Line-of-Sight Monster Mechanic</h3>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/-GzE9am3SuE?rel=0&modestbranding=1"></iframe>
+    <ul>
+      <li>Implemented visibility-based AI using camera detection</li>
+      <li>Used raycasting and frustum checks for accuracy</li>
+      <li>Optimized detection logic for performance</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>RPG Battle System Prototype</h3>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDlAuVy_yA?rel=0&modestbranding=1"></iframe>
+    <ul>
+      <li>Built turn-based combat logic and state management</li>
+      <li>Designed modular combat system architecture</li>
+      <li>Focused on extensibility for future features</li>
+    </ul>
+  </div>
 
 </section>
 
@@ -369,14 +412,26 @@ iframe:hover {
   <div class="card">
     <h3>Junior Game Developer @ Zinad</h3>
     <p><strong>July 2025 - Present</strong></p>
-    <ul> <li>Developing a rhythm-based fitness VR game for Meta Quest 3</li> <li>Designed and implemented scalable gameplay systems</li> <li>Built multiplayer mechanics using Photon PUN</li> <li>Applied design patterns (State, Object Pooling) for clean architecture</li> <li>Integrated Firebase systems for real-time data handling</li> <li>Optimized performance and memory usage for smooth gameplay</li> <li>Collaborated in Agile environment with Git-based workflows</li> </ul>
+    <ul>
+      <li>Developing a rhythm-based fitness VR game for Meta Quest 3</li>
+      <li>Designed and implemented scalable gameplay systems</li>
+      <li>Built multiplayer mechanics using Photon PUN</li>
+      <li>Applied design patterns (State, Object Pooling) for clean architecture</li>
+      <li>Integrated Firebase systems for real-time data handling</li>
+      <li>Optimized performance and memory usage for smooth gameplay</li>
+      <li>Collaborated in Agile environment with Git-based workflows</li>
+    </ul>
   </div>
 
   <div class="card">
     <h3>Game Development Instructor @ Da3em Academy</h3>
     <p><strong>2023 - 2025</strong></p>
     <ul>
-      <li>Delivered structured courses in Unity and Roblox development</li> <li>Designed full curricula covering programming, physics, and UI systems</li> <li>Mentored students from beginner level to publishing games</li> <li>Simplified complex technical concepts into practical lessons</li> <li>Helped students build portfolios and real-world projects</li>
+      <li>Delivered structured courses in Unity and Roblox development</li>
+      <li>Designed full curricula covering programming, physics, and UI systems</li>
+      <li>Mentored students from beginner level to publishing games</li>
+      <li>Simplified complex technical concepts into practical lessons</li>
+      <li>Helped students build portfolios and real-world projects</li>
     </ul>
   </div>
 
@@ -399,22 +454,37 @@ iframe:hover {
 function toggleMenu() {
   const menu = document.getElementById("nav-menu");
   const icon = document.getElementById("menuIcon");
-
   menu.classList.toggle("active");
-
-  // Animate icon
-  if(menu.classList.contains("active")){
-    icon.textContent = "✖";
-  } else {
-    icon.textContent = "☰";
-  }
+  icon.textContent = menu.classList.contains("active") ? "✖" : "☰";
 }
 
-// PARTICLES (unchanged)
+function closeMenu() {
+  const menu = document.getElementById("nav-menu");
+  const icon = document.getElementById("menuIcon");
+  menu.classList.remove("active");
+  icon.textContent = "☰";
+}
+
+// Close menu when clicking outside
+document.addEventListener("click", function(e) {
+  const menu = document.getElementById("nav-menu");
+  const icon = document.getElementById("menuIcon");
+  if (menu.classList.contains("active") && !menu.contains(e.target) && e.target !== icon) {
+    menu.classList.remove("active");
+    icon.textContent = "☰";
+  }
+});
+
+// PARTICLES
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
 let particles = [];
 for(let i=0;i<80;i++){
