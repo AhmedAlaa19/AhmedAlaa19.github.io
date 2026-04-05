@@ -363,6 +363,7 @@ iframe:hover {
   iframe { height:200px; }
   .carousel-track img { height:180px; }
   .btn { width:100%; margin:8px 0; }
+  #yt-content .btn { width:auto; display:inline-block; margin:8px auto; }
 }
 </style>
 </head>
@@ -413,7 +414,6 @@ iframe:hover {
     <span>Object Pooling</span>
     <span>Scriptable Objects</span>
     <span>Event-Driven Architecture</span>
-    <span>Photon PUN</span>
     <span>Physics & Player Controllers</span>
     <span>Multiplayer (Photon PUN)</span>
     <span>Firebase Integration</span>
@@ -434,7 +434,6 @@ iframe:hover {
   <div class="card">
     <h3>ZiRunner</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/N7kuuCKZ6uI"></iframe>
- 
     <ul>
       <li>Developed a multiplayer endless runner using Photon PUN</li>
       <li>Implemented player synchronization and core gameplay loop</li>
@@ -445,7 +444,6 @@ iframe:hover {
   <div class="card">
     <h3>Cam3 Horror Game - Work in Progress</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/mtu0YiJJ53c"></iframe>
- 
     <ul>
       <li>Designed immersive horror experience</li>
       <li>Implemented camera-based monster tracking system</li>
@@ -457,7 +455,6 @@ iframe:hover {
   <div class="card">
     <h3>Firebase Inventory System</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/9_xd8Zw_LMM?rel=0&modestbranding=1"></iframe>
- 
     <ul>
       <li>Built a real-time inventory system integrated with Firebase</li>
       <li>Handled data syncing, storage and retrieval</li>
@@ -468,8 +465,6 @@ iframe:hover {
   <div class="card">
     <h3>Line-of-Sight Monster Mechanic</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/-GzE9am3SuE?rel=0&modestbranding=1"></iframe>
- 
-    </div>
     <ul>
       <li>Implemented visibility-based AI using camera detection</li>
       <li>Used raycasting and frustum checks for accuracy</li>
@@ -480,9 +475,10 @@ iframe:hover {
   <div class="card">
     <h3>RPG Battle System Prototype</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDlAuVy_yA?rel=0&modestbranding=1"></iframe>
-    <!-- <div class="carousel" data-id="rpg">
+    <!-- Carousel commented out — uncomment and add images when ready:
+    <div class="carousel" data-id="rpg">
       <div class="carousel-track-wrap"><div class="carousel-track">
-          <img src="images/rpg1.jpg" alt="RPG screenshot 1"> 
+        <img src="images/rpg1.jpg" alt="RPG screenshot 1">
       </div></div>
       <button class="carousel-btn prev" onclick="carouselMove('rpg',-1)">&#8249;</button>
       <button class="carousel-btn next" onclick="carouselMove('rpg',1)">&#8250;</button>
@@ -504,14 +500,11 @@ iframe:hover {
 
   <div class="card pathway-card">
     <h3>Simple Driving Simulator Prototype</h3>
-    <iframe width="100%" height="250" src="https://www.youtube.com/embed/Gk07GLDUqNU?si=kaR8bhzRLsPcDYfx"></iframe>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/1i45sKmSH6k?si=asKyR5axMHQbBd4b"></iframe>
     <div class="carousel" data-id="pathway1">
       <div class="carousel-track-wrap"><div class="carousel-track">
-
-        <!-- <img src="images/pathway1a.jpg" alt="Pathway project 1 screenshot"> -->
-        <img src="Images\DrivingSim1.jpg" alt= "Project 1: Simple Driving Simulator Prototype">
-        <img src="Images\DrivingSim2.jpg" alt="Project 1: Simple Driving Simulator Prototype">
-
+        <img src="Images/DrivingSim1.jpg" alt="Project 1: Simple Driving Simulator Prototype">
+        <img src="Images/DrivingSim2.jpg" alt="Project 1: Simple Driving Simulator Prototype">
       </div></div>
       <button class="carousel-btn prev" onclick="carouselMove('pathway1',-1)">&#8249;</button>
       <button class="carousel-btn next" onclick="carouselMove('pathway1',1)">&#8250;</button>
@@ -521,9 +514,36 @@ iframe:hover {
       <li>Character Controller and Camera Follow Scripts</li>
       <li>Vehicle Physics Implementation</li>
       <li>Basic Driving Mechanics</li>
+      <li>Oncoming Traffic</li>
+      <li>Camera Point of View Switching</li>
+      <li>Local Multiplayer Support</li>
     </ul>
   </div>
- 
+
+</section>
+
+<section id="pathway">
+  <div class="card pathway-card">
+    <h3>Simple Plane Control Prototype (Challenge 1 - Plane Programming)</h3>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/qI8u-08rihM?si=WWaeviO3_LABtZK-"></iframe>
+    <div class="carousel" data-id="pathway1">
+      <div class="carousel-track-wrap"><div class="carousel-track">
+        <img src="Images/DrivingSim1.jpg" alt="Project 1: Simple Driving Simulator Prototype">
+        <img src="Images/DrivingSim2.jpg" alt="Project 1: Simple Driving Simulator Prototype">
+      </div></div>
+      <button class="carousel-btn prev" onclick="carouselMove('pathway1',-1)">&#8249;</button>
+      <button class="carousel-btn next" onclick="carouselMove('pathway1',1)">&#8250;</button>
+      <div class="carousel-dots" id="dots-pathway1"></div>
+    </div>
+    <ul>
+      <li>Character Controller and Camera Follow Scripts</li>
+      <li>Flying Vehicle Physics Implementation</li>
+      <li>Basic Flying Mechanics: Tilt and Forward Movement</li>
+      <li>Spinning Propeller Animation</li>
+      <li>Camera Point of View Switching</li>
+
+    </ul>
+  </div>
 
 </section>
 
