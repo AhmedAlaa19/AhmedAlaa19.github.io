@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ahmed Alaa - Game Dev Portfolio</title>
-
 <style>
 :root {
   --card:#1e293b;
@@ -19,15 +18,14 @@ body {
   font-family:Arial;
   color:var(--text);
   background: linear-gradient(135deg, #020617, #0d1422, #020617);
+  min-height:100vh;
   overflow-x:hidden;
 }
 
 #particles {
   position:fixed;
-  width:100%;
-  height:100%;
-  top:0;
-  left:0;
+  width:100%; height:100%;
+  top:0; left:0;
   z-index:-1;
 }
 
@@ -42,7 +40,6 @@ header {
   box-sizing:border-box;
 }
 
-/* Desktop nav */
 nav {
   display:flex;
   justify-content:center;
@@ -61,10 +58,8 @@ nav a {
 nav a::after {
   content:"";
   position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0%;
-  height:2px;
+  left:0; bottom:-5px;
+  width:0%; height:2px;
   background:var(--accent);
   transition:0.3s;
 }
@@ -90,13 +85,11 @@ nav a:hover { text-shadow:0 0 8px var(--accent); }
   box-shadow:0 0 20px var(--accent), 0 0 40px var(--accent);
 }
 
-/* HAMBURGER */
 .menu-toggle {
   display:none;
   font-size:28px;
   color:var(--accent);
   cursor:pointer;
-  transition:0.3s;
   background:none;
   border:none;
   padding:0;
@@ -116,10 +109,7 @@ section h2 {
   text-shadow:0 0 12px rgba(0,195,209,0.4);
 }
 
-section h3 {
-  color:var(--accent);
-  margin-top:0;
-}
+section h3 { color:var(--accent); margin-top:0; }
 
 .hero {
   height:100vh;
@@ -133,7 +123,7 @@ section h3 {
   width:100%;
   max-width:440px;
   border-radius:50%;
-  border: 15px solid #00c3d1;
+  border:15px solid #00c3d1;
   border-style:double;
   box-shadow:0 0 30px var(--accent);
   transition:0.4s;
@@ -152,7 +142,7 @@ section h3 {
 }
 
 @keyframes typing { from{width:0} to{width:100%} }
-@keyframes blink {50%{border-color:transparent}}
+@keyframes blink { 50%{border-color:transparent} }
 
 .card {
   background:var(--card);
@@ -184,9 +174,13 @@ section h3 {
   box-shadow:0 0 10px var(--accent);
 }
 
+.pathway-card { border-left:3px solid #7c3aed; }
+.pathway-card h3 { color:#a78bfa !important; }
+
 iframe {
   border-radius:10px;
   transition:0.3s;
+  display:block;
 }
 
 iframe:hover {
@@ -212,24 +206,105 @@ iframe:hover {
   box-shadow:0 0 20px var(--accent), 0 0 40px var(--accent);
 }
 
+/* ── CAROUSEL ── */
+.carousel {
+  position:relative;
+  margin-top:16px;
+  border-radius:10px;
+  overflow:hidden;
+  background:#0a1628;
+}
+
+.carousel-track-wrap {
+  overflow:hidden;
+  border-radius:10px;
+}
+
+.carousel-track {
+  display:flex;
+  transition:transform 0.4s ease;
+}
+
+.carousel-track img {
+  min-width:100%;
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  flex-shrink:0;
+  border-radius:0;
+}
+
+.carousel-btn {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.6);
+  border:1px solid var(--accent);
+  color:var(--accent);
+  font-size:20px;
+  width:38px; height:38px;
+  border-radius:50%;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s;
+  z-index:10;
+  padding:0;
+}
+
+.carousel-btn:hover { background:var(--accent); color:#000; }
+.carousel-btn.prev { left:10px; }
+.carousel-btn.next { right:10px; }
+
+.carousel-dots {
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  padding:10px 0 6px;
+}
+
+.carousel-dots span {
+  width:8px; height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.25);
+  cursor:pointer;
+  transition:0.3s;
+  display:inline-block;
+}
+
+.carousel-dots span.active {
+  background:var(--accent);
+  box-shadow:0 0 6px var(--accent);
+}
+
+.carousel-empty {
+  padding:24px;
+  text-align:center;
+  color:rgba(255,255,255,0.3);
+  font-size:13px;
+  font-style:italic;
+}
+
 /* MOBILE */
 @media (max-width:768px){
 
   body {
-    background: linear-gradient(135deg, #020617, #0d1422, #020617) !important;
-    -webkit-background-size: cover;
-    background-attachment: scroll;
-    min-height: 100vh;
+    background:linear-gradient(135deg, #020617, #0d1422, #020617) !important;
+    background-attachment:scroll;
+    min-height:100vh;
   }
 
   .card {
-    background: #1e293b !important;
-    border-left: 3px solid var(--accent);
+    background:#1e293b !important;
+    border-left:3px solid var(--accent);
   }
 
+  .pathway-card { border-left:3px solid #7c3aed !important; }
+
   .skills span {
-    background: #0f172a !important;
-    color: #ffffff !important;
+    background:#0f172a !important;
+    color:#ffffff !important;
   }
 
   header {
@@ -240,28 +315,18 @@ iframe:hover {
     position:fixed;
   }
 
-  header h2 {
-    font-size:18px;
-    margin:0;
-  }
-
-  .menu-toggle {
-    display:block;
-    flex-shrink:0;
-  }
+  header h2 { font-size:18px; margin:0; }
+  .menu-toggle { display:block; flex-shrink:0; }
 
   nav {
     position:absolute;
-    top:100%;
-    left:0;
+    top:100%; left:0;
     width:100%;
     background:rgba(0,0,0,0.95);
     backdrop-filter:blur(10px);
     flex-direction:column;
     align-items:center;
     flex-wrap:nowrap;
-
-    /* Hidden by default */
     max-height:0;
     overflow:hidden;
     opacity:0;
@@ -269,11 +334,7 @@ iframe:hover {
     transition:max-height 0.4s ease, opacity 0.3s ease;
   }
 
-  nav.active {
-    max-height:500px;
-    opacity:1;
-    pointer-events:auto;
-  }
+  nav.active { max-height:600px; opacity:1; pointer-events:auto; }
 
   nav a {
     width:100%;
@@ -282,6 +343,8 @@ iframe:hover {
     margin:0;
     border-bottom:1px solid rgba(0,195,209,0.1);
   }
+
+  nav a::after { display:none; }
 
   .nav-btn {
     display:block;
@@ -293,33 +356,13 @@ iframe:hover {
     box-sizing:border-box;
   }
 
-  nav a::after { display:none; }
-
-  .hero {
-    height:auto;
-    padding-top:120px;
-  }
-
-  .hero img {
-    max-width:200px;
-    border-width:8px;
-  }
-
-  .typing {
-    white-space:normal;
-    border:none;
-    animation:none;
-  }
-
+  .hero { height:auto; padding-top:120px; }
+  .hero img { max-width:200px; border-width:8px; }
+  .typing { white-space:normal; border:none; animation:none; }
   h1 { font-size:20px; }
-
   iframe { height:200px; }
-
-  .btn {
-    width:100%;
-    margin:8px 0;
-  }
-
+  .carousel-track img { height:180px; }
+  .btn { width:100%; margin:8px 0; }
 }
 </style>
 </head>
@@ -334,6 +377,8 @@ iframe:hover {
     <a href="#about" onclick="closeMenu()">About</a>
     <a href="#skills" onclick="closeMenu()">Skills</a>
     <a href="#projects" onclick="closeMenu()">Projects</a>
+    <a href="#pathway" onclick="closeMenu()">Unity Pathway</a>
+    <a href="#youtube" onclick="closeMenu()">YouTube</a>
     <a href="#experience" onclick="closeMenu()">Experience</a>
     <a href="#contact" onclick="closeMenu()">Contact</a>
     <a href="Ahmed_Alaa_Unity_Game_Developer.pdf" target="_blank" class="nav-btn">Resume</a>
@@ -351,15 +396,9 @@ iframe:hover {
 <section id="about">
   <h2>About Me</h2>
   <div class="card">
-    <p>
-      Unity Game Developer specializing in gameplay systems, AI mechanics, and interactive experiences across PC and VR platforms. I focus on building scalable, maintainable systems using clean architecture principles and design patterns, with strong attention to performance and player experience.
-    </p>
-    <p>
-      Professionally, I have contributed to both single-player and multiplayer projects, including a Photon PUN-based endless runner and system-driven gameplay prototypes. I enjoy solving complex technical problems and translating ideas into polished, responsive gameplay.
-    </p>
-    <p>
-      Alongside development, I have 3+ years of experience as a Game Development Instructor, where I design structured learning paths, mentor students, and help them ship real projects.
-    </p>
+    <p>Unity Game Developer specializing in gameplay systems, AI mechanics, and interactive experiences across PC and VR platforms. I focus on building scalable, maintainable systems using clean architecture principles and design patterns, with strong attention to performance and player experience.</p>
+    <p>Professionally, I have contributed to both single-player and multiplayer projects, including a Photon PUN-based endless runner and system-driven gameplay prototypes. I enjoy solving complex technical problems and translating ideas into polished, responsive gameplay.</p>
+    <p>Alongside development, I have 3+ years of experience as a Game Development Instructor, where I design structured learning paths, mentor students, and help them ship real projects.</p>
   </div>
 </section>
 
@@ -374,6 +413,7 @@ iframe:hover {
     <span>Object Pooling</span>
     <span>Scriptable Objects</span>
     <span>Event-Driven Architecture</span>
+    <span>Photon PUN</span>
     <span>Physics & Player Controllers</span>
     <span>Multiplayer (Photon PUN)</span>
     <span>Firebase Integration</span>
@@ -394,6 +434,7 @@ iframe:hover {
   <div class="card">
     <h3>ZiRunner</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/N7kuuCKZ6uI"></iframe>
+ 
     <ul>
       <li>Developed a multiplayer endless runner using Photon PUN</li>
       <li>Implemented player synchronization and core gameplay loop</li>
@@ -404,6 +445,7 @@ iframe:hover {
   <div class="card">
     <h3>Cam3 Horror Game - Work in Progress</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/mtu0YiJJ53c"></iframe>
+ 
     <ul>
       <li>Designed immersive horror experience</li>
       <li>Implemented camera-based monster tracking system</li>
@@ -415,6 +457,7 @@ iframe:hover {
   <div class="card">
     <h3>Firebase Inventory System</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/9_xd8Zw_LMM?rel=0&modestbranding=1"></iframe>
+ 
     <ul>
       <li>Built a real-time inventory system integrated with Firebase</li>
       <li>Handled data syncing, storage and retrieval</li>
@@ -425,6 +468,8 @@ iframe:hover {
   <div class="card">
     <h3>Line-of-Sight Monster Mechanic</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/-GzE9am3SuE?rel=0&modestbranding=1"></iframe>
+ 
+    </div>
     <ul>
       <li>Implemented visibility-based AI using camera detection</li>
       <li>Used raycasting and frustum checks for accuracy</li>
@@ -435,6 +480,14 @@ iframe:hover {
   <div class="card">
     <h3>RPG Battle System Prototype</h3>
     <iframe width="100%" height="250" src="https://www.youtube.com/embed/VIDlAuVy_yA?rel=0&modestbranding=1"></iframe>
+    <!-- <div class="carousel" data-id="rpg">
+      <div class="carousel-track-wrap"><div class="carousel-track">
+          <img src="images/rpg1.jpg" alt="RPG screenshot 1"> 
+      </div></div>
+      <button class="carousel-btn prev" onclick="carouselMove('rpg',-1)">&#8249;</button>
+      <button class="carousel-btn next" onclick="carouselMove('rpg',1)">&#8250;</button>
+      <div class="carousel-dots" id="dots-rpg"></div>
+    </div> -->
     <ul>
       <li>Built turn-based combat logic and state management</li>
       <li>Designed modular combat system architecture</li>
@@ -442,6 +495,57 @@ iframe:hover {
     </ul>
   </div>
 
+</section>
+
+<!-- UNITY PATHWAY PROJECTS -->
+<section id="pathway">
+  <h2>Unity Junior Programmer Pathway Projects</h2>
+  <p style="color:rgba(255,255,255,0.6); margin-top:-5px; margin-bottom:20px;">Projects built during the Junior Programmer Unity Pathway</p>
+
+  <div class="card pathway-card">
+    <h3>Simple Driving Simulator Prototype</h3>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/Gk07GLDUqNU?si=kaR8bhzRLsPcDYfx"></iframe>
+    <div class="carousel" data-id="pathway1">
+      <div class="carousel-track-wrap"><div class="carousel-track">
+
+        <!-- <img src="images/pathway1a.jpg" alt="Pathway project 1 screenshot"> -->
+        <img src="Images\DrivingSim1.jpg" alt= "Project 1: Simple Driving Simulator Prototype">
+        <img src="Images\DrivingSim2.jpg" alt="Project 1: Simple Driving Simulator Prototype">
+
+      </div></div>
+      <button class="carousel-btn prev" onclick="carouselMove('pathway1',-1)">&#8249;</button>
+      <button class="carousel-btn next" onclick="carouselMove('pathway1',1)">&#8250;</button>
+      <div class="carousel-dots" id="dots-pathway1"></div>
+    </div>
+    <ul>
+      <li>Character Controller and Camera Follow Scripts</li>
+      <li>Vehicle Physics Implementation</li>
+      <li>Basic Driving Mechanics</li>
+    </ul>
+  </div>
+ 
+
+</section>
+
+<!-- YOUTUBE LATEST VIDEO -->
+<section id="youtube">
+  <h2>Latest Video</h2>
+  <p style="color:rgba(255,255,255,0.6); margin-top:-5px; margin-bottom:20px;">Fresh from my YouTube channel</p>
+  <div class="card" id="yt-card" style="text-align:center;">
+    <div id="yt-loading" style="padding:40px 0; color:rgba(255,255,255,0.5);">Loading latest video...</div>
+    <div id="yt-content" style="display:none;">
+      <h3 id="yt-title" style="margin-bottom:12px;"></h3>
+      <iframe id="yt-iframe" width="100%" height="350" frameborder="0" allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        style="border-radius:10px;"></iframe>
+      <p style="margin-top:14px;">
+        <a href="https://www.youtube.com/@AbuAlaa007" target="_blank" class="btn" style="text-decoration:none;">Visit Channel</a>
+      </p>
+    </div>
+    <div id="yt-error" style="display:none; padding:40px 0; color:rgba(255,255,255,0.4);">
+      Could not load video. <a href="https://www.youtube.com/@AbuAlaa007" target="_blank" style="color:var(--accent);">Visit channel directly →</a>
+    </div>
+  </div>
 </section>
 
 <section id="experience">
@@ -480,7 +584,6 @@ iframe:hover {
   <div class="card">
     <p>Email: Ahmed.A.Abdou@outlook.com</p>
     <p>Phone: +20 102 099 4208</p>
-
     <button class="btn" onclick="window.open('https://www.linkedin.com/in/ahmedalaa277/')">LinkedIn</button>
     <button class="btn" onclick="window.open('https://github.com/Ahmed-A-Abdou')">GitHub</button>
     <button class="btn" onclick="window.open('https://www.youtube.com/@AbuAlaa007')">YouTube</button>
@@ -489,6 +592,7 @@ iframe:hover {
 </section>
 
 <script>
+// ── NAV ──
 function toggleMenu() {
   const menu = document.getElementById("nav-menu");
   const icon = document.getElementById("menuIcon");
@@ -497,13 +601,10 @@ function toggleMenu() {
 }
 
 function closeMenu() {
-  const menu = document.getElementById("nav-menu");
-  const icon = document.getElementById("menuIcon");
-  menu.classList.remove("active");
-  icon.textContent = "☰";
+  document.getElementById("nav-menu").classList.remove("active");
+  document.getElementById("menuIcon").textContent = "☰";
 }
 
-// Close menu when clicking outside
 document.addEventListener("click", function(e) {
   const menu = document.getElementById("nav-menu");
   const icon = document.getElementById("menuIcon");
@@ -513,7 +614,53 @@ document.addEventListener("click", function(e) {
   }
 });
 
-// PARTICLES
+// ── CAROUSEL ──
+const carouselState = {};
+
+function initCarousels() {
+  document.querySelectorAll('.carousel').forEach(function(carousel) {
+    const id = carousel.getAttribute('data-id');
+    const imgs = carousel.querySelectorAll('.carousel-track img');
+    const dotsContainer = document.getElementById('dots-' + id);
+    const track = carousel.querySelector('.carousel-track');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
+
+    if (imgs.length === 0) {
+      prevBtn.style.display = 'none';
+      nextBtn.style.display = 'none';
+      track.innerHTML = '<div class="carousel-empty">Images coming soon — add &lt;img&gt; tags inside the carousel-track div</div>';
+      return;
+    }
+
+    carouselState[id] = 0;
+
+    imgs.forEach(function(_, i) {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dot.onclick = function() { goToSlide(id, i); };
+      dotsContainer.appendChild(dot);
+    });
+  });
+}
+
+function goToSlide(id, index) {
+  const carousel = document.querySelector('.carousel[data-id="' + id + '"]');
+  const imgs = carousel.querySelectorAll('.carousel-track img');
+  const track = carousel.querySelector('.carousel-track');
+  const dots = document.querySelectorAll('#dots-' + id + ' span');
+  if (imgs.length === 0) return;
+  index = (index + imgs.length) % imgs.length;
+  carouselState[id] = index;
+  track.style.transform = 'translateX(-' + (index * 100) + '%)';
+  dots.forEach(function(d, i) { d.classList.toggle('active', i === index); });
+}
+
+function carouselMove(id, dir) {
+  goToSlide(id, (carouselState[id] || 0) + dir);
+}
+
+// ── PARTICLES ──
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
@@ -525,23 +672,46 @@ resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
 let particles = [];
-for(let i=0;i<80;i++){
-  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2});
+for (let i = 0; i < 80; i++) {
+  particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 2 });
 }
 
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = '#00c3d1';
-  particles.forEach(p=>{
+  particles.forEach(function(p) {
     ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
     ctx.fill();
     p.y += 0.3;
-    if(p.y > canvas.height) p.y = 0;
+    if (p.y > canvas.height) p.y = 0;
   });
   requestAnimationFrame(animate);
 }
 animate();
+
+// ── YOUTUBE RSS ──
+(async function() {
+  const channelId = 'UCczt6eDSUlBtkRCuMmECDcQ';
+  const api = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://www.youtube.com/feeds/videos.xml?channel_id=' + channelId);
+  try {
+    const res = await fetch(api);
+    const data = await res.json();
+    if (data.status === 'ok' && data.items && data.items.length > 0) {
+      const video = data.items[0];
+      const videoId = video.link.split('v=')[1];
+      document.getElementById('yt-title').textContent = video.title;
+      document.getElementById('yt-iframe').src = 'https://www.youtube.com/embed/' + videoId + '?rel=0&modestbranding=1';
+      document.getElementById('yt-loading').style.display = 'none';
+      document.getElementById('yt-content').style.display = 'block';
+    } else { throw new Error(); }
+  } catch(e) {
+    document.getElementById('yt-loading').style.display = 'none';
+    document.getElementById('yt-error').style.display = 'block';
+  }
+})();
+
+initCarousels();
 </script>
 
 </body>
