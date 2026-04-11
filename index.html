@@ -232,6 +232,12 @@ iframe:hover {
   object-fit:cover;
   flex-shrink:0;
   border-radius:0;
+  cursor:zoom-in;
+  transition:opacity 0.2s;
+}
+
+.carousel-track img:hover {
+  opacity:0.85;
 }
 
 .carousel-btn {
@@ -285,6 +291,55 @@ iframe:hover {
   font-size:13px;
   font-style:italic;
 }
+
+/* ── LIGHTBOX ── */
+#lightbox {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:rgba(0,0,0,0.92);
+  justify-content:center;
+  align-items:center;
+  cursor:zoom-out;
+  padding:20px;
+  box-sizing:border-box;
+}
+
+#lightbox.active {
+  display:flex;
+}
+
+#lightbox img {
+  max-width:100%;
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:8px;
+  box-shadow:0 0 40px rgba(0,195,209,0.3);
+  cursor:default;
+  animation:lb-in 0.25s ease;
+}
+
+@keyframes lb-in {
+  from { opacity:0; transform:scale(0.92); }
+  to   { opacity:1; transform:scale(1); }
+}
+
+#lightbox-close {
+  position:fixed;
+  top:16px;
+  right:20px;
+  font-size:32px;
+  color:var(--accent);
+  cursor:pointer;
+  line-height:1;
+  background:none;
+  border:none;
+  transition:0.2s;
+  z-index:10000;
+}
+
+#lightbox-close:hover { transform:scale(1.2); }
 
 /* MOBILE */
 @media (max-width:768px){
@@ -370,6 +425,12 @@ iframe:hover {
 <body>
 
 <canvas id="particles"></canvas>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+</div>
 
 <header>
   <h2>Ahmed Alaa</h2>
@@ -544,28 +605,26 @@ iframe:hover {
   </div>
 
   <!-- Pathway Project 3 -->
-<!-- Pathway Project 3 -->
-<div class="card pathway-card">
-  <h3>Feed the Animals Prototype</h3>
-  <iframe width="100%" height="250" src="https://www.youtube.com/embed/rA9OnaA1X5M?si=2b7dKARRAeABWyYl"></iframe>
-  <div class="carousel" data-id="pathway3">
-    <div class="carousel-track-wrap"><div class="carousel-track">
-      <img src="Images/SecondPrototypeImage1.jpg" alt="Feed the Animals screenshot 1">
-      <img src="Images/SecondPrototypeImage2.jpg" alt="Feed the Animals screenshot 2">
-    </div></div>
-    <button class="carousel-btn prev" onclick="carouselMove('pathway3',-1)">&#8249;</button>
-    <button class="carousel-btn next" onclick="carouselMove('pathway3',1)">&#8250;</button>
-    <div class="carousel-dots" id="dots-pathway3"></div>
+  <div class="card pathway-card">
+    <h3>Feed the Animals Prototype</h3>
+    <iframe width="100%" height="250" src="https://www.youtube.com/embed/rA9OnaA1X5M?si=2b7dKARRAeABWyYl"></iframe>
+    <div class="carousel" data-id="pathway3">
+      <div class="carousel-track-wrap"><div class="carousel-track">
+        <img src="Images/SecondPrototypeImage1.jpg" alt="Feed the Animals screenshot 1">
+        <img src="Images/SecondPrototypeImage2.jpg" alt="Feed the Animals screenshot 2">
+      </div></div>
+      <button class="carousel-btn prev" onclick="carouselMove('pathway3',-1)">&#8249;</button>
+      <button class="carousel-btn next" onclick="carouselMove('pathway3',1)">&#8250;</button>
+      <div class="carousel-dots" id="dots-pathway3"></div>
+    </div>
+    <ul>
+      <li>Top-down player movement</li>
+      <li>Projectile throwing mechanic to launch food at animals</li>
+      <li>Animals randomly spawning and charging toward the player</li>
+      <li>Collision detection between food and animals</li>
+      <li>Game over on animal reaching the player</li>
+    </ul>
   </div>
-  <ul>
-    <li>Top-down player movement</li>
-    <li>Projectile throwing mechanic to launch food at animals</li>
-    <li>Animals randomly spawning and charging toward the player</li>
-    <li>Collision detection between food and animals</li>
-    <!-- <li>Score tracking and live UI display</li> -->
-    <li>Game over on animal reaching the player</li>
-  </ul>
-</div>
 
 </section>
 
@@ -656,6 +715,25 @@ document.addEventListener("click", function(e) {
   }
 });
 
+// ── LIGHTBOX ──
+function openLightbox(src, alt) {
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img');
+  img.src = src;
+  img.alt = alt;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
 // ── CAROUSEL ──
 const carouselState = {};
 
@@ -677,7 +755,12 @@ function initCarousels() {
 
     carouselState[id] = 0;
 
-    imgs.forEach(function(_, i) {
+    // Attach lightbox click to each image
+    imgs.forEach(function(img, i) {
+      img.addEventListener('click', function() {
+        openLightbox(img.src, img.alt);
+      });
+
       const dot = document.createElement('span');
       if (i === 0) dot.classList.add('active');
       dot.onclick = function() { goToSlide(id, i); };
